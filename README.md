@@ -11,13 +11,13 @@ Herramienta para **Windows 10 y Windows 11** que preserva y analiza el archivo `
 ZIP directo:
 
 ```text
-https://github.com/eelciberseguridad/ANALIZADOR-HISTORIAL-NAVEGACION-WINDOWS/archive/refs/heads/main.zip
+https://github.com/eelciberseguridad/Lab-ChromeHistory/archive/refs/heads/main.zip
 ```
 
 Clonar:
 
 ```bash
-git clone https://github.com/eelciberseguridad/ANALIZADOR-HISTORIAL-NAVEGACION-WINDOWS.git
+https://github.com/eelciberseguridad/Lab-ChromeHistory.git
 ```
 
 ## Requisitos
