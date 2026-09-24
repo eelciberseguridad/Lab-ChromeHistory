@@ -36,25 +36,7 @@ INICIAR.bat
 
 El iniciador comprueba Python 3 y ejecuta `analizador_navegacion.py`. Si Python no está instalado, puede abrir la página oficial de descarga.
 
-## Flujo de trabajo
-
-```text
-DETECTAR PERFIL
-      ↓
-ELEGIR PERFIL
-      ↓
-COMPROBAR QUE CHROME ESTÉ CERRADO
-      ↓
-COPIAR HISTORY / WAL / SHM
-      ↓
-VERIFICAR SHA-256
-      ↓
-ANALIZAR SQLITE EN MODO LECTURA
-      ↓
-GENERAR RESULTADOS HTML
-```
-
-La pantalla principal contiene solamente:
+## La pantalla principal contiene solamente:
 
 ```text
 [1] DETECTAR PERFILES COMPATIBLES
