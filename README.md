@@ -105,7 +105,7 @@ Cada análisis crea una carpeta propia dentro de `resultados/` y genera **nueve 
 [9] DESCARGAS.html
 ```
 
-El número **9 siempre corresponde a Descargas**. Los resultados se generan aunque una categoría no tenga registros.
+Los resultados se generan aunque una categoría no tenga registros.
 
 La Versión 1 genera los resultados persistentes en HTML. Al actualizar un análisis anterior, los formatos de salida obsoletos se eliminan de la carpeta de resultados.
 
