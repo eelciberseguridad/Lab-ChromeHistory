@@ -1,0 +1,3 @@
+# No hay dependencias externas.
+# Python recomendado: 3.10 o superior.
+# El proyecto utiliza únicamente la biblioteca estándar de Python.
