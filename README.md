@@ -1,207 +1,122 @@
-# Analizador de Historial de Navegación
+# Lab-ChromeHistory
 
-**Versión estable: 1.0.0**
+Herramienta para **Windows** que preserva y analiza el historial de Google Chrome almacenado en SQLite.
 
-Herramienta para **Windows 10 y Windows 11** que preserva y analiza el archivo `History` de perfiles de Google Chrome, calcula SHA-256, reconstruye actividad de navegación y genera resultados HTML consultables.
+Permite revisar actividad de navegación, URLs, dominios, búsquedas y descargas desde resultados HTML fáciles de consultar.
 
-> Uso previsto: capacitación, análisis técnico e investigación digital sobre sistemas propios o expresamente autorizados. No se presenta como una suite pericial certificada ni sustituye procedimientos formales de adquisición, cadena de custodia o validación metodológica.
+## ¿Qué hace?
 
-## Descarga
-
-ZIP directo:
-
-```text
-https://github.com/eelciberseguridad/Lab-ChromeHistory/archive/refs/heads/main.zip
-```
-
-Clonar:
-
-```bash
-https://github.com/eelciberseguridad/Lab-ChromeHistory.git
-```
+- Detecta perfiles de Google Chrome.
+- Copia `History`, `History-wal` y `History-shm` cuando están disponibles.
+- Calcula hashes **SHA-256** para controlar la integridad.
+- Analiza la copia del historial en modo lectura.
+- Convierte las fechas de Chromium a un formato legible.
+- Genera resultados HTML para consultar la información recuperada.
 
 ## Requisitos
 
 - Windows 10 u 11.
 - Python 3.10 o superior.
-- No requiere dependencias externas.
+- No requiere librerías externas.
 
-## Inicio
+## Descargar
 
-Extraiga el proyecto y ejecute:
+Repositorio:
+
+```text
+https://github.com/eelciberseguridad/Lab-ChromeHistory
+```
+
+Clonar:
+
+```bash
+git clone https://github.com/eelciberseguridad/Lab-ChromeHistory.git
+```
+
+O descargá el repositorio como ZIP desde GitHub.
+
+## Cómo usarlo
+
+1. Cerrá Google Chrome.
+2. Ejecutá:
 
 ```text
 INICIAR.bat
 ```
 
-El iniciador comprueba Python 3 y ejecuta `analizador_navegacion.py`. Si Python no está instalado, puede abrir la página oficial de descarga.
-
-## La pantalla principal contiene solamente:
+3. Elegí:
 
 ```text
 [1] DETECTAR PERFILES COMPATIBLES
+```
+
+4. Seleccioná el perfil que querés analizar.
+5. La herramienta preservará una copia y generará los resultados.
+6. Para volver a consultar análisis anteriores utilizá:
+
+```text
 [2] CONSULTAR ANÁLISIS GENERADOS
-[0] SALIR
 ```
 
-Al finalizar un análisis:
+## Resultados
+
+Cada análisis genera:
 
 ```text
-[1] Consultar resultados de este análisis
-[2] Abrir carpeta de este análisis
-[3] Volver a la pantalla principal
+[1] Centro de consulta
+[2] Resumen
+[3] Línea de tiempo
+[4] Páginas y URLs
+[5] Dominios
+[6] Tipos de navegación
+[7] Origen de visitas
+[8] Búsquedas
+[9] Descargas
 ```
 
-## Adquisición e integridad
+### Centro de consulta
 
-La versión 1 detecta perfiles en:
+`CENTRO_DE_CONSULTA.html` es la vista principal.
 
-```text
-%LOCALAPPDATA%\Google\Chrome\User Data
-```
+Permite consultar el historial por:
 
-Para el perfil seleccionado intenta preservar:
-
-```text
-History
-History-wal
-History-shm
-```
-
-Para cada archivo disponible calcula SHA-256 del origen antes de copiar, de la copia y del origen después de copiar. Si los valores no permanecen consistentes, la herramienta advierte que la adquisición debe repetirse.
-
-La evidencia se almacena en `evidencia/`. El análisis se realiza sobre la copia de `History`, abierta en modo lectura.
-
-## Información analizada
-
-Según las tablas y columnas disponibles, la herramienta puede recuperar:
-
-- URLs y títulos;
-- eventos individuales de visita;
+- tipo de información;
+- fecha;
 - dominio;
-- `visit_count` y `typed_count`;
-- transición o tipo de navegación;
-- origen técnico de visita;
-- duración registrada;
-- referrer interno y externo;
-- términos de búsqueda;
-- descargas y sus URLs relacionadas.
+- texto;
+- búsquedas;
+- descargas.
 
-Los timestamps de Chromium se convierten a UTC legible. La fecha de ejecución del análisis se muestra en la hora local del equipo.
+También permite imprimir o guardar resultados como PDF.
 
-## Informes generados
-
-Cada análisis crea una carpeta propia dentro de `resultados/` y genera **nueve resultados HTML con numeración fija**:
-
-```text
-[1] CENTRO_DE_CONSULTA.html
-[2] RESUMEN.html
-[3] LINEA_DE_TIEMPO.html
-[4] PAGINAS_Y_URLS.html
-[5] DOMINIOS.html
-[6] TIPOS_DE_NAVEGACION.html
-[7] ORIGEN_DE_VISITAS.html
-[8] BUSQUEDAS.html
-[9] DESCARGAS.html
-```
-
-Los resultados se generan aunque una categoría no tenga registros.
-
-La Versión 1 genera los resultados persistentes en HTML. Al actualizar un análisis anterior, los formatos de salida obsoletos se eliminan de la carpeta de resultados.
-
-## Centro de consulta
-
-`CENTRO_DE_CONSULTA.html` reúne tres bloques.
-
-### 1. Resumen
-
-Muestra:
-
-- eventos de visita;
-- URLs registradas;
-- dominios distintos;
-- búsquedas identificadas;
-- descargas registradas;
-- período recuperado, desde/hasta;
-- dominio con mayor cantidad de eventos;
-- fecha con mayor actividad;
-- archivo analizado;
-- SHA-256;
-- tamaño;
-- fecha local del análisis.
-
-### 2. Centro de consulta
-
-Permite combinar:
-
-- **Información:** Actividad, Navegación, Búsquedas, Descargas o URLs registradas.
-- **Fecha UTC.**
-- **Dominio.**
-- **Texto:** título, URL, búsqueda, archivo u otro valor visible.
-
-La consulta puede iniciarse con **Consultar** o presionando **Enter**. La búsqueda de texto no distingue mayúsculas ni acentos y acepta varias palabras.
-
-Para historiales extensos, el procesamiento se realiza por bloques y se muestran 75 resultados inicialmente. **Mostrar más** incorpora resultados adicionales sin renderizar todo el historial de una vez.
-
-La consulta puede exportarse a CSV o imprimirse/guardarse como PDF.
-
-### 3. Información del análisis
-
-Indica de forma breve que:
-
-- los resultados corresponden a los registros presentes en la base examinada;
-- SHA-256 aporta un control de integridad;
-- el procesamiento del historial se realiza localmente.
-
-## Informes complementarios
-
-Los ocho resultados complementarios incluyen:
-
-- buscador;
-- búsqueda con Enter;
-- búsqueda sin distinguir mayúsculas ni acentos;
-- paginación de 50, 100 o 250 registros;
-- contador de resultados;
-- acceso al Centro de consulta;
-- impresión/guardado PDF mediante una vista limpia.
-
-## Consulta de análisis anteriores
-
-La opción principal **[2] CONSULTAR ANÁLISIS GENERADOS** muestra los análisis disponibles. Al elegir uno se abre siempre la misma lista fija de nueve resultados.
-
-Puede abrir varios resultados consecutivamente.
-
-- `M` dentro del listado de resultados vuelve a la lista de análisis.
-- `M` en la lista de análisis vuelve a la pantalla principal.
-
-## Interpretación técnica
-
-Algunos campos requieren contexto:
-
-- una URL registrada no identifica automáticamente a la persona que utilizó el equipo;
-- `visit_count` es un contador almacenado por el navegador y no debe asumirse como conteo exacto de acciones humanas;
-- `typed_count` es un indicador técnico y debe correlacionarse con otros datos;
-- `visit_duration` no equivale necesariamente a tiempo efectivo de lectura;
-- una búsqueda identificada no demuestra intención por sí sola;
-- una descarga registrada no demuestra que el archivo haya sido abierto o ejecutado;
-- la ausencia de un registro no prueba que la actividad nunca haya ocurrido.
-
-## Privacidad del repositorio
-
-No publique evidencia real. `.gitignore` excluye el contenido de:
+## Carpetas
 
 ```text
 evidencia/
+```
+
+Contiene las copias utilizadas para el análisis.
+
+```text
 resultados/
 ```
 
-y conserva únicamente sus archivos `.gitkeep`.
+Contiene cada análisis y sus archivos HTML.
+
+## Importante
+
+Usá la herramienta únicamente sobre equipos, perfiles y datos propios o expresamente autorizados.
+
+Una URL, una búsqueda o una descarga registrada por el navegador debe interpretarse dentro de su contexto. El historial por sí solo no identifica necesariamente a la persona que realizó una acción.
+
+No subas evidencia real ni resultados de casos al repositorio público. `.gitignore` mantiene excluido el contenido de `evidencia/` y `resultados/`.
 
 ## Licencia
 
-MIT. Consulte `LICENSE`.
+MIT.
 
 ## Autor
 
 **EEL Ciberseguridad**  
-Correo: `eelciberseguridad@gmail.com`
+Abogado – Especialista en Entornos Digitales y Ciberseguridad  
+`eelciberseguridad@gmail.com`
