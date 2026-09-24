@@ -197,33 +197,6 @@ resultados/
 
 y conserva únicamente sus archivos `.gitkeep`.
 
-## Estructura
-
-```text
-ANALIZADOR-HISTORIAL-NAVEGACION-WINDOWS/
-├── INICIAR.bat
-├── analizador_navegacion.py
-├── analyzer.py
-├── report_center.py
-├── html_exports.py
-├── README.md
-├── DESCARGA.md
-├── LICENSE
-├── requirements.txt
-├── VERSION.txt
-├── CHANGELOG.md
-├── SECURITY.md
-├── .gitignore
-├── .gitattributes
-├── docs/
-│   ├── DATOS_ANALIZADOS.md
-│   └── GUIA_GITHUB.md
-├── evidencia/
-│   └── .gitkeep
-└── resultados/
-    └── .gitkeep
-```
-
 ## Licencia
 
 MIT. Consulte `LICENSE`.
@@ -231,30 +204,4 @@ MIT. Consulte `LICENSE`.
 ## Autor
 
 **EEL Ciberseguridad**  
-Abogado – Especialista en Entornos Digitales y Ciberseguridad  
 Correo: `eelciberseguridad@gmail.com`
-
-## Compatibilidad de los resultados HTML
-
-Los resultados secundarios contienen sus registros directamente en el documento HTML. La información es visible aunque el navegador limite la ejecución de JavaScript local. JavaScript se utiliza solo para la búsqueda rápida.
-
-
-## Consulta de resultados
-
-Cada análisis genera nueve resultados HTML:
-
-```text
-[1] Centro de consulta
-[2] Resumen
-[3] Línea de tiempo
-[4] Páginas y URLs
-[5] Dominios
-[6] Tipos de navegación
-[7] Origen de visitas
-[8] Búsquedas
-[9] Descargas
-```
-
-Al seleccionar un resultado se abre en el navegador y la consola queda inmediatamente preparada para elegir otro número. No es necesario presionar `ENTER` después de cerrarlo.
-
-Los resultados secundarios contienen los registros directamente dentro del HTML. JavaScript se utiliza únicamente para la búsqueda rápida. Si el navegador no ejecuta scripts locales, los datos continúan visibles.
