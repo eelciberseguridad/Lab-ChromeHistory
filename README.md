@@ -155,7 +155,7 @@ Indica de forma breve que:
 
 ## Informes complementarios
 
-Los ocho resultados complementarios mantienen la misma estética general del proyecto. Incluyen:
+Los ocho resultados complementarios incluyen:
 
 - buscador;
 - búsqueda con Enter;
