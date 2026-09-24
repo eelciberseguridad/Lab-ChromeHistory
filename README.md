@@ -8,12 +8,6 @@ Herramienta para **Windows 10 y Windows 11** que preserva y analiza el archivo `
 
 ## Descarga
 
-Repositorio recomendado:
-
-```text
-https://github.com/eelciberseguridad/ANALIZADOR-HISTORIAL-NAVEGACION-WINDOWS
-```
-
 ZIP directo:
 
 ```text
