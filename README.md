@@ -33,7 +33,9 @@ Clonar:
 git clone https://github.com/eelciberseguridad/Lab-ChromeHistory.git
 ```
 
-O descargá el repositorio como ZIP desde GitHub.
+O descargá el repositorio desde aca:
+
+[![Descargar Lab-ChromeHistory](https://img.shields.io/badge/⬇️_DESCARGAR-Lab--ChromeHistory-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/eelciberseguridad/Lab-ChromeHistory/archive/refs/heads/main.zip)
 
 ## Cómo usarlo
 
@@ -109,7 +111,9 @@ Usá la herramienta únicamente sobre equipos, perfiles y datos propios o expres
 
 Una URL, una búsqueda o una descarga registrada por el navegador debe interpretarse dentro de su contexto. El historial por sí solo no identifica necesariamente a la persona que realizó una acción.
 
-No subas evidencia real ni resultados de casos al repositorio público. `.gitignore` mantiene excluido el contenido de `evidencia/` y `resultados/`.
+Los datos recopilados podrian contener informacion sencible y deben ser preservados con el cuidado necesario. 
+
+Este sistema ayuda, pero no suplanta a herramientas de adquisicion de evidencia profesionales.
 
 ## Licencia
 
@@ -118,5 +122,4 @@ MIT.
 ## Autor
 
 **EEL Ciberseguridad**  
-Abogado – Especialista en Entornos Digitales y Ciberseguridad  
 `eelciberseguridad@gmail.com`
